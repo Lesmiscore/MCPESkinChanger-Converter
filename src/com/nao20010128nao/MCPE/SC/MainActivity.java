@@ -24,17 +24,18 @@ public class MainActivity extends SmartFindViewActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 		instance = new WeakReference<MainActivity>(this);
+		setContentView(R.layout.start);
        	try {
 			data = PluginUtils.getMapFromIntent(getIntent());
 		} catch (IOException e) {
 			setResult(RESULT_CANCELED);
 			finish();
 		}
-		((View)find("openPlayStore")).setOnClickListener(new View.OnClickListener(){
+		/*((View)find("openPlayStore")).setOnClickListener(new View.OnClickListener(){
 				public void onClick(View v) {
 					startActivity(Intent.createChooser(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("http://play.google.com/store/apps/details?id="+getPackageName())),getResources().getString(R.string.openPlayStore)));
 				}
-			});
+			});*/
     }
 
 	@Override
