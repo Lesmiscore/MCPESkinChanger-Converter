@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceScreen
+		android:title="@string/changeableSkins">
+		<pref.StartPref
+			android:title="@string/selectCaveSpider"
+			android:key="selectCaveSpider"/>
+		<pref.StartPref
+			android:title="@string/selectEnderman"
+			android:key="selectEnderman"/>
+		<pref.StartPref
+			android:title="@string/selectSpider"
+			android:key="selecSpider"/>
+		<pref.StartPref
+			android:title="@string/selectTamedWolf"
+			android:key="selectTamedWolf"/>
+	</PreferenceScreen>
+	<PreferenceScreen
+		android:title="@string/about">
+		<pref.StartPref
+			android:title="@string/openPlayStore"
+			android:key="openPlayStore"/>
+	</PreferenceScreen>
+</PreferenceScreen>

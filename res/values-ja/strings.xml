@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="changeableSkins">変更スキンを指定</string>
+    
+	<string name="about">このアプリについて</string>  
+	<string name="openPlayStore">Playストアでこのアプリを見る</string>
+	<string name="askExit">終了してもよろしいですか?</string>
+	<string name="saveAndFinish">保存して終了</string>
+</resources>

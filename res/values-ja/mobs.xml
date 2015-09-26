@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="selectCaveSpider">ケイブスパイダーのスキンを選択</string>
+	<string name="selectEnderman">エンダーマンのスキンを選択</string>
+	<string name="selectSpider">スパイダーのスキンを選択</string>
+	<string name="selectTamedWolf">餌付けした狼のスキンを選択</string>
+</resources>

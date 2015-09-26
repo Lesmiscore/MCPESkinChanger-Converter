@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MCPE Skin Changer REJECTS</string>
+
+    <string name="changeableSkins">Select skin to change</string>
+    
+    <string name="about">About this app</string>
+    <string name="openPlayStore">Open Play Store for this app</string>
+	<string name="askExit">Do you want to exit?</string>
+	<string name="saveAndFinish">Save and exit</string>
+</resources>
