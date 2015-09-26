@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="unknown">"???"</string>
+	<string name="png">PNG</string>
+	<string name="jpeg">JPG</string>
+	<string name="gif">GIF</string>
+	<string name="tga">TGA</string>
+	<string name="webm">WEBM</string>
+	
+	
+	<string name="bow">-></string>
+</resources>
