@@ -3,7 +3,8 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:orientation="vertical">
+	android:orientation="vertical"
+	android:gravity="center_horizontal">
 
 	<LinearLayout
 		android:layout_height="100dp"
@@ -41,6 +42,12 @@
 			android:shadowDx="-20"/>
 
 	</LinearLayout>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:layout_width="wrap_content"
+		android:text="Medium Text"/>
 
 </LinearLayout>
 
