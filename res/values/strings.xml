@@ -8,4 +8,5 @@
     <string name="openPlayStore">Open Play Store for this app</string>
 	<string name="askExit">Do you want to exit?</string>
 	<string name="saveAndFinish">Save and exit</string>
+	<string name="begin">Let\'s begin!</string>
 </resources>
