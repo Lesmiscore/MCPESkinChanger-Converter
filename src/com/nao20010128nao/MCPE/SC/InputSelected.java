@@ -2,7 +2,7 @@ package com.nao20010128nao.MCPE.SC;
 import com.nao20010128nao.MCPE.SC.misc.*;
 import android.os.*;
 
-public class InputSelected extends SmartFindViewActivity
+public class InputSelected extends Default
 {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

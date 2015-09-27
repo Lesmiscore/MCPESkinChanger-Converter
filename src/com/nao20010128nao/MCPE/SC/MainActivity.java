@@ -14,7 +14,7 @@ import java.net.*;
 import android.app.*;
 import android.view.*;
 
-public class MainActivity extends SmartFindViewActivity {
+public class MainActivity extends Default {
 	public static WeakReference<MainActivity> instance=new WeakReference<>(null);
 	static final String MIME_TGA="image/targa";
 	volatile String changeTmp=null;
@@ -34,11 +34,10 @@ public class MainActivity extends SmartFindViewActivity {
 		((View)find("selectfile")).setOnClickListener(new View.OnClickListener(){
 				public void onClick(View v) {
 					Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-					intent.setType("image/png");
+					intent.setType("image/*");
 					startActivityForResult(intent, 123);
 				}
 			});
-		
     }
 
 	@Override
@@ -46,7 +45,9 @@ public class MainActivity extends SmartFindViewActivity {
 		// TODO: Implement this method
 		switch(requestCode){
 			case 123:
-				
+				Intent i=new Intent(this,InputSelected.class);
+				i.putExtra("path",data.getDataString());
+				startActivity(i);
 				break;
 		}
 	}
