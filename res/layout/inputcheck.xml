@@ -47,13 +47,7 @@
 		android:layout_height="wrap_content"
 		android:textAppearance="?android:attr/textAppearanceLarge"
 		android:layout_width="wrap_content"
-		android:text="@string/begin"/>
-
-	<Button
-		android:layout_height="wrap_content"
-		android:layout_width="wrap_content"
-		android:text="@string/select"
-		android:id="@+id/selectfile"/>
+		android:text="@string/checking"/>
 
 </LinearLayout>
 

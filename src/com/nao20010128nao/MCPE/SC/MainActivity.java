@@ -31,11 +31,14 @@ public class MainActivity extends SmartFindViewActivity {
 			setResult(RESULT_CANCELED);
 			finish();
 		}
-		/*((View)find("openPlayStore")).setOnClickListener(new View.OnClickListener(){
+		((View)find("selectfile")).setOnClickListener(new View.OnClickListener(){
 				public void onClick(View v) {
-					startActivity(Intent.createChooser(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("http://play.google.com/store/apps/details?id="+getPackageName())),getResources().getString(R.string.openPlayStore)));
+					Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+					intent.setType("image/png");
+					startActivityForResult(intent, 123);
 				}
-			});*/
+			});
+		
     }
 
 	@Override
