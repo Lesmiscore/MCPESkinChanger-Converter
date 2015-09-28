@@ -4,7 +4,7 @@ import android.content.pm.*;
 import android.content.pm.PackageManager.*;
 import android.content.res.*;
 import android.util.*;
-import com.nao20010128nao.MC_PE.SkinChanger.REJECTED.*;
+import com.nao20010128nao.MC_PE.SkinChanger.CONVERTER.*;
 import java.util.*;
 
 public class Utils

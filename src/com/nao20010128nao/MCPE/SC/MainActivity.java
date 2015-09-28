@@ -4,7 +4,7 @@ import android.content.*;
 import android.net.*;
 import android.os.*;
 import com.nao20010128nao.MCPE.SC.misc.*;
-import com.nao20010128nao.MC_PE.SkinChanger.REJECTED.*;
+import com.nao20010128nao.MC_PE.SkinChanger.CONVERTER.*;
 import com.nao20010128nao.ToolBox.HandledPreference.*;
 import java.lang.ref.*;
 import com.nao20010128nao.MCPE.SC.plugin.*;
@@ -31,7 +31,7 @@ public class MainActivity extends Default {
 			setResult(RESULT_CANCELED);
 			finish();
 		}
-		((View)find("selectfile")).setOnClickListener(new View.OnClickListener(){
+		findViewById(R.id.selectfile).setOnClickListener(new View.OnClickListener(){
 				public void onClick(View v) {
 					Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 					intent.setType("image/*");
