@@ -11,7 +11,7 @@ import java.lang.ref.*;
 
 public class Default extends SmartFindViewActivity
 {
-	static WeakReference wr=new WeakReference(null);
+	static WeakReference<Default> wr=new WeakReference(null);
 	LinearLayout content;
 	TextView input,output;
 	boolean whileCreate;

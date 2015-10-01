@@ -47,7 +47,7 @@ public class MainActivity extends SmartFindViewActivity {
 			case 123:
 				Intent i=new Intent(this,InputSelected.class);
 				i.putExtra("path",data.getDataString());
-				startActivity(i);
+				Default.wr.get().setInside(i);
 				break;
 		}
 	}
