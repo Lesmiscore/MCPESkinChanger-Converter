@@ -62,6 +62,9 @@ public class InputSelected extends SmartFindViewActivity
 					return URI.create(uri).toURL().openConnection().getInputStream();
 				}
 			}
+			public void onPostExecute(Formats f){
+				
+			}
 		}.execute(getIntent().getDataString());
 		class FormatAndImage{
 			public Formats format;
