@@ -14,7 +14,7 @@ import java.net.*;
 import android.app.*;
 import android.view.*;
 
-public class MainActivity extends Default {
+public class MainActivity extends SmartFindViewActivity {
 	public static WeakReference<MainActivity> instance=new WeakReference<>(null);
 	static final String MIME_TGA="image/targa";
 	volatile String changeTmp=null;
