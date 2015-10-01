@@ -5,6 +5,7 @@ import com.nao20010128nao.MC_PE.SkinChanger.CONVERTER.*;
 import java.io.*;
 import java.net.*;
 import android.net.*;
+import android.graphics.*;
 
 public class InputSelected extends SmartFindViewActivity
 {
@@ -62,5 +63,9 @@ public class InputSelected extends SmartFindViewActivity
 				}
 			}
 		}.execute(getIntent().getDataString());
+		class FormatAndImage{
+			public Formats format;
+			public Bitmap bmp;
+		}
 	}
 }
