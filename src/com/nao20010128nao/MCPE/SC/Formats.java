@@ -50,6 +50,14 @@ public enum Formats {
 				data[2]=='B'&
 				data[3]=='P';
 		}
+	},
+	TGA{
+		@Override
+		public boolean isCorrectFormat(byte[] data)
+		{
+			// TODO: Implement this method
+			return true;
+		}
 	};
 	public abstract boolean isCorrectFormat(byte[] data);
 }
