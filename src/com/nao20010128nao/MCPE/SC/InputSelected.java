@@ -34,7 +34,7 @@ public class InputSelected extends SmartFindViewActivity
 				}finally{
 					try {
 						is.close();
-					} catch (IOException e) {
+					} catch (Throwable e) {
 						
 					}
 					file=baos.toByteArray();
