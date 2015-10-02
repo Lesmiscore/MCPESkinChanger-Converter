@@ -16,6 +16,7 @@ import android.view.*;
 
 public class MainActivity extends SmartFindViewActivity {
 	public static WeakReference<MainActivity> instance=new WeakReference<>(null);
+	public static Intent launchIntent;
 	static final String MIME_TGA="image/targa";
 	volatile String changeTmp=null;
 	public DiffMap<String,byte[]> data;
@@ -38,6 +39,7 @@ public class MainActivity extends SmartFindViewActivity {
 					startActivityForResult(intent, 123);
 				}
 			});
+		launchIntent=getIntent();
     }
 
 	@Override
