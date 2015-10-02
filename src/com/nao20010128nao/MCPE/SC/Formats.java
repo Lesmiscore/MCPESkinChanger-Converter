@@ -1,4 +1,5 @@
 package com.nao20010128nao.MCPE.SC;
+import android.graphics.*;
 
 public enum Formats {
 	JPEG{
@@ -7,6 +8,30 @@ public enum Formats {
 		{
 			// TODO: Implement this method
 			return data[0]==0xff&data[1]==0xd8;
+		}
+		@Override
+		public boolean isDeprecated()
+		{
+			// TODO: Implement this method
+			return true;
+		}
+		@Override
+		public byte[] save(Bitmap bmp)
+		{
+			// TODO: Implement this method
+			return null;
+		}
+		@Override
+		public Bitmap load(byte[] arr)
+		{
+			// TODO: Implement this method
+			return null;
+		}
+		@Override
+		public boolean isSupported()
+		{
+			// TODO: Implement this method
+			return false;
 		}
 	},
 	PNG{
@@ -24,6 +49,30 @@ public enum Formats {
 				data[6]==0x1a&
 				data[7]==0x0a;
 		}
+		@Override
+		public boolean isDeprecated()
+		{
+			// TODO: Implement this method
+			return false;
+		}
+		@Override
+		public byte[] save(Bitmap bmp)
+		{
+			// TODO: Implement this method
+			return null;
+		}
+		@Override
+		public Bitmap load(byte[] arr)
+		{
+			// TODO: Implement this method
+			return null;
+		}
+		@Override
+		public boolean isSupported()
+		{
+			// TODO: Implement this method
+			return false;
+		}
 	},
 	GIF{
 		@Override
@@ -37,7 +86,31 @@ public enum Formats {
 				data[3]=='8'&
 				(data[4]=='7'|data[4]=='9')&
 				data[5]=='a';
-		}		
+		}
+		@Override
+		public boolean isDeprecated()
+		{
+			// TODO: Implement this method
+			return true;
+		}
+		@Override
+		public byte[] save(Bitmap bmp)
+		{
+			// TODO: Implement this method
+			return null;
+		}
+		@Override
+		public Bitmap load(byte[] arr)
+		{
+			// TODO: Implement this method
+			return null;
+		}
+		@Override
+		public boolean isSupported()
+		{
+			// TODO: Implement this method
+			return false;
+		}
 	},
 	WEBP{
 		@Override
@@ -50,6 +123,30 @@ public enum Formats {
 				data[2]=='B'&
 				data[3]=='P';
 		}
+		@Override
+		public boolean isDeprecated()
+		{
+			// TODO: Implement this method
+			return false;
+		}
+		@Override
+		public byte[] save(Bitmap bmp)
+		{
+			// TODO: Implement this method
+			return null;
+		}
+		@Override
+		public Bitmap load(byte[] arr)
+		{
+			// TODO: Implement this method
+			return null;
+		}
+		@Override
+		public boolean isSupported()
+		{
+			// TODO: Implement this method
+			return false;
+		}
 	},
 	TGA{
 		@Override
@@ -58,6 +155,34 @@ public enum Formats {
 			// TODO: Implement this method
 			return true;
 		}
+		@Override
+		public boolean isDeprecated()
+		{
+			// TODO: Implement this method
+			return false;
+		}
+		@Override
+		public byte[] save(Bitmap bmp)
+		{
+			// TODO: Implement this method
+			return null;
+		}
+		@Override
+		public Bitmap load(byte[] arr)
+		{
+			// TODO: Implement this method
+			return null;
+		}
+		@Override
+		public boolean isSupported()
+		{
+			// TODO: Implement this method
+			return false;
+		}
 	};
 	public abstract boolean isCorrectFormat(byte[] data);
+	public abstract boolean isDeprecated();
+	public abstract byte[] save(Bitmap bmp);
+	public abstract Bitmap load(byte[] arr);
+	public abstract boolean isSupported();
 }
