@@ -12,4 +12,5 @@
 	<string name="begin">Let\'s begin!</string>
 	<string name="select">Select file</string>
 	<string name="checking">Checking the format...</string>
+	<string name="unknownType">File is invalid or not supported by this application.</string>
 </resources>
