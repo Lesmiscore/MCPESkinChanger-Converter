@@ -63,7 +63,9 @@ public class InputSelected extends SmartFindViewActivity
 				}
 			}
 			public void onPostExecute(Formats f){
-				
+				if(f==null){
+					return;
+				}
 			}
 		}.execute(getIntent().getStringExtra("path"));
 		class FormatAndImage{
