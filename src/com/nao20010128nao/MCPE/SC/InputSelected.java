@@ -6,6 +6,7 @@ import java.io.*;
 import java.net.*;
 import android.net.*;
 import android.graphics.*;
+import android.widget.*;
 
 public class InputSelected extends SmartFindViewActivity
 {
@@ -14,8 +15,8 @@ public class InputSelected extends SmartFindViewActivity
 		// TODO: Implement this method
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.inputcheck);
-		new AsyncTask<String,Void,Formats>(){
-			public Formats doInBackground(String[]s){
+		new AsyncTask<String,Void,FormatAndImage>(){
+			public FormatAndImage doInBackground(String[]s){
 				String from=s[0];
 				byte[] file=null;
 				InputStream is=null;
@@ -39,18 +40,19 @@ public class InputSelected extends SmartFindViewActivity
 					}
 					file=baos.toByteArray();
 				}
-				Formats result=null;
+				FormatAndImage result=new FormatAndImage();
 				if(Formats.PNG.isCorrectFormat(file)){
-					result=Formats.PNG;
+					result.format=Formats.PNG;
 				}else if(Formats.WEBP.isCorrectFormat(file)){
-					result=Formats.WEBP;
+					result.format=Formats.WEBP;
 				}else if(Formats.JPEG.isCorrectFormat(file)){
-					result=Formats.JPEG;
+					result.format=Formats.JPEG;
 				}else if(Formats.GIF.isCorrectFormat(file)){
-					result=Formats.GIF;
+					result.format=Formats.GIF;
 				}else if(from.endsWith(".tga")|from.endsWith(".tpic")){
-					result=Formats.TGA;
+					result.format=Formats.TGA;
 				}
+				result.bmp=result.format!=null?result.format.load(file):null;
 				return result;
 			}
 			public InputStream tryOpen(String uri) throws IOException {
@@ -62,15 +64,17 @@ public class InputSelected extends SmartFindViewActivity
 					return URI.create(uri).toURL().openConnection().getInputStream();
 				}
 			}
-			public void onPostExecute(Formats f){
-				if(f==null){
+			public void onPostExecute(FormatAndImage f){
+				if(f.format==null){
+					Toast.makeText(InputSelected.this,R.string.unknownType,Toast.LENGTH_LONG);
 					return;
 				}
+				
 			}
 		}.execute(getIntent().getStringExtra("path"));
-		class FormatAndImage{
-			public Formats format;
-			public Bitmap bmp;
-		}
+	}
+	class FormatAndImage{
+		public Formats format;
+		public Bitmap bmp;
 	}
 }
