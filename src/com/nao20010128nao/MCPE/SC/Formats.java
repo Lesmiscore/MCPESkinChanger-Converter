@@ -1,5 +1,8 @@
 package com.nao20010128nao.MCPE.SC;
 import android.graphics.*;
+import java.io.*;
+import android.os.*;
+import net.zhuoweizhang.mercator.*;
 
 public enum Formats {
 	JPEG{
@@ -19,7 +22,9 @@ public enum Formats {
 		public byte[] save(Bitmap bmp)
 		{
 			// TODO: Implement this method
-			return null;
+			ByteArrayOutputStream baos=new ByteArrayOutputStream();
+			bmp.compress(Bitmap.CompressFormat.JPEG,100,baos);
+			return baos.toByteArray();
 		}
 		@Override
 		public Bitmap load(byte[] arr)
@@ -31,7 +36,7 @@ public enum Formats {
 		public boolean isSupported()
 		{
 			// TODO: Implement this method
-			return false;
+			return true;
 		}
 	},
 	PNG{
@@ -59,7 +64,9 @@ public enum Formats {
 		public byte[] save(Bitmap bmp)
 		{
 			// TODO: Implement this method
-			return null;
+			ByteArrayOutputStream baos=new ByteArrayOutputStream();
+			bmp.compress(Bitmap.CompressFormat.PNG,100,baos);
+			return baos.toByteArray();
 		}
 		@Override
 		public Bitmap load(byte[] arr)
@@ -71,7 +78,7 @@ public enum Formats {
 		public boolean isSupported()
 		{
 			// TODO: Implement this method
-			return false;
+			return true;
 		}
 	},
 	GIF{
@@ -97,7 +104,7 @@ public enum Formats {
 		public byte[] save(Bitmap bmp)
 		{
 			// TODO: Implement this method
-			return null;
+			throw new UnsupportedOperationException("Android doesn't support to save a Bitmap as a GIF file.");
 		}
 		@Override
 		public Bitmap load(byte[] arr)
@@ -133,7 +140,9 @@ public enum Formats {
 		public byte[] save(Bitmap bmp)
 		{
 			// TODO: Implement this method
-			return null;
+			ByteArrayOutputStream baos=new ByteArrayOutputStream();
+			bmp.compress(Bitmap.CompressFormat.WEBP,100,baos);
+			return baos.toByteArray();
 		}
 		@Override
 		public Bitmap load(byte[] arr)
@@ -145,7 +154,7 @@ public enum Formats {
 		public boolean isSupported()
 		{
 			// TODO: Implement this method
-			return false;
+			return Build.VERSION.SDK_INT>=14;
 		}
 	},
 	TGA{
@@ -171,13 +180,31 @@ public enum Formats {
 		public Bitmap load(byte[] arr)
 		{
 			// TODO: Implement this method
-			return null;
+			FileOutputStream fos=null;
+			try{
+				fos=new FileOutputStream(RunOnceApplication.tmpFileA);
+				fos.write(arr);
+			}catch(Throwable e){
+				return null;
+			}finally{
+				try{
+					fos.close();
+				}catch (Throwable e) {
+					
+				}
+			}
+			try{
+				ConvertTGA.tgaToPng(RunOnceApplication.tmpFileA,RunOnceApplication.tmpFileB);
+			}catch (IOException e) {
+				
+			}
+			return BitmapFactory.decodeFile(RunOnceApplication.tmpFileB.toString());
 		}
 		@Override
 		public boolean isSupported()
 		{
 			// TODO: Implement this method
-			return false;
+			return true;
 		}
 	};
 	public abstract boolean isCorrectFormat(byte[] data);
