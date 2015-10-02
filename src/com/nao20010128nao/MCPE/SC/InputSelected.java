@@ -65,7 +65,7 @@ public class InputSelected extends SmartFindViewActivity
 			public void onPostExecute(Formats f){
 				
 			}
-		}.execute(getIntent().getDataString());
+		}.execute(getIntent().getStringExtra("path"));
 		class FormatAndImage{
 			public Formats format;
 			public Bitmap bmp;
