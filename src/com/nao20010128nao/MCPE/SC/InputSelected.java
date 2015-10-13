@@ -76,7 +76,6 @@ public class InputSelected extends SmartFindViewActivity
 				}
 				Default.wr.get().setInputExtension(f.format);
 				Default.wr.get().cache.put("bitmap",f.bmp);
-				Toast.makeText(InputSelected.this,R.string.jpeg,Toast.LENGTH_LONG).show();
 				
 			}
 			public String dumpHead(byte[] b){
