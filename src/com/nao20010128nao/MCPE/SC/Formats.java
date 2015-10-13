@@ -38,6 +38,12 @@ public enum Formats {
 			// TODO: Implement this method
 			return true;
 		}
+		@Override
+		public int internalValue()
+		{
+			// TODO: Implement this method
+			return 0;
+		}
 	},
 	PNG{
 		@Override
@@ -80,6 +86,12 @@ public enum Formats {
 			// TODO: Implement this method
 			return true;
 		}
+		@Override
+		public int internalValue()
+		{
+			// TODO: Implement this method
+			return 1;
+		}
 	},
 	GIF{
 		@Override
@@ -118,6 +130,12 @@ public enum Formats {
 			// TODO: Implement this method
 			return false;
 		}
+		@Override
+		public int internalValue()
+		{
+			// TODO: Implement this method
+			return 2;
+		}
 	},
 	WEBP{
 		@Override
@@ -155,6 +173,12 @@ public enum Formats {
 		{
 			// TODO: Implement this method
 			return Build.VERSION.SDK_INT>=14;
+		}
+		@Override
+		public int internalValue()
+		{
+			// TODO: Implement this method
+			return 3;
 		}
 	},
 	TGA{
@@ -206,10 +230,17 @@ public enum Formats {
 			// TODO: Implement this method
 			return true;
 		}
+		@Override
+		public int internalValue()
+		{
+			// TODO: Implement this method
+			return 4;
+		}
 	};
 	public abstract boolean isCorrectFormat(byte[] data);
 	public abstract boolean isDeprecated();
 	public abstract byte[] save(Bitmap bmp);
 	public abstract Bitmap load(byte[] arr);
 	public abstract boolean isSupported();
+	public abstract int internalValue();
 }
