@@ -10,7 +10,9 @@ public enum Formats {
 		public boolean isCorrectFormat(byte[] data)
 		{
 			// TODO: Implement this method
-			return data[0]==0xff&data[1]==0xd8;
+			return 
+				data[0]==(byte)0xff&
+				data[1]==(byte)0xd8;
 		}
 		@Override
 		public boolean isDeprecated()
@@ -51,14 +53,14 @@ public enum Formats {
 		{
 			// TODO: Implement this method
 			return 
-				data[0]==0x89&
-				data[1]=='P'&
-				data[2]=='N'&
-				data[3]=='G'&
-				data[4]==0x0d&
-				data[5]==0x0a&
-				data[6]==0x1a&
-				data[7]==0x0a;
+				data[0]==(byte)0x89&
+				data[1]==(byte)'P'&
+				data[2]==(byte)'N'&
+				data[3]==(byte)'G'&
+				data[4]==(byte)0x0d&
+				data[5]==(byte)0x0a&
+				data[6]==(byte)0x1a&
+				data[7]==(byte)0x0a;
 		}
 		@Override
 		public boolean isDeprecated()
@@ -99,12 +101,12 @@ public enum Formats {
 		{
 			// TODO: Implement this method
 			return 
-				data[0]=='G'&
-				data[1]=='I'&
-				data[2]=='F'&
-				data[3]=='8'&
-				(data[4]=='7'|data[4]=='9')&
-				data[5]=='a';
+				data[0]==(byte)'G'&
+				data[1]==(byte)'I'&
+				data[2]==(byte)'F'&
+				data[3]==(byte)'8'&
+				(data[4]==(byte)'7'|data[4]==(byte)'9')&
+				data[5]==(byte)'a';
 		}
 		@Override
 		public boolean isDeprecated()
@@ -143,10 +145,10 @@ public enum Formats {
 		{
 			// TODO: Implement this method
 			return 
-				data[0]=='W'&
-				data[1]=='E'&
-				data[2]=='B'&
-				data[3]=='P';
+				data[0]==(byte)'W'&
+				data[1]==(byte)'E'&
+				data[2]==(byte)'B'&
+				data[3]==(byte)'P';
 		}
 		@Override
 		public boolean isDeprecated()
