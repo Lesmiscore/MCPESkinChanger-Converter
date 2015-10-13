@@ -7,6 +7,7 @@ import java.net.*;
 import android.net.*;
 import android.graphics.*;
 import android.widget.*;
+import android.util.*;
 
 public class InputSelected extends SmartFindViewActivity
 {
@@ -40,6 +41,9 @@ public class InputSelected extends SmartFindViewActivity
 					}
 					file=baos.toByteArray();
 				}
+				Log.d("check","file loaded");
+				Log.d("check","loaded:"+file.length);
+				Log.d("check","dump:"+dumpHead(file));
 				FormatAndImage result=new FormatAndImage();
 				if(Formats.PNG.isCorrectFormat(file)){
 					result.format=Formats.PNG;
@@ -53,6 +57,7 @@ public class InputSelected extends SmartFindViewActivity
 					result.format=Formats.TGA;
 				}
 				result.bmp=result.format!=null?result.format.load(file):null;
+				Log.d("check","going to main");
 				return result;
 			}
 			public InputStream tryOpen(String uri) throws IOException {
@@ -66,10 +71,25 @@ public class InputSelected extends SmartFindViewActivity
 			}
 			public void onPostExecute(FormatAndImage f){
 				if(f.format==null){
-					Toast.makeText(InputSelected.this,R.string.unknownType,Toast.LENGTH_LONG);
+					Toast.makeText(InputSelected.this,R.string.unknownType,Toast.LENGTH_LONG).show();
 					return;
 				}
+				Default.wr.get().setInputExtension(f.format);
+				Default.wr.get().cache.put("bitmap",f.bmp);
+				Toast.makeText(InputSelected.this,R.string.jpeg,Toast.LENGTH_LONG).show();
 				
+			}
+			public String dumpHead(byte[] b){
+				String s="";
+				for(int i=0;i<=Math.min(20,b.length);i++){
+					s+=" ";
+					String d=Integer.toHexString(b[i]);
+					if(d.length()==1){
+						s+="0";
+					}
+					s+=d;
+				}
+				return s.substring(1);
 			}
 		}.execute(getIntent().getStringExtra("path"));
 	}

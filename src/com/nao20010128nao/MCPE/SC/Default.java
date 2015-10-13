@@ -18,10 +18,11 @@ public class Default extends SmartFindViewActivity
 	boolean whileCreate;
 	int defTextColor;
 	Map<Integer,View> index=new HashMap<>();
+	Map<Object,Object> cache=new HashMap<>();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO: Implement this method
-		wr=new WeakReference(this);
+		wr=new WeakReference<>(this);
 		whileCreate=true;
 		super.onCreate(savedInstanceState);
 		super.setContentView(R.layout.def);
@@ -39,7 +40,7 @@ public class Default extends SmartFindViewActivity
 		content.addView(v);
 	}
 	public void setInputExtension(Formats fmt){
-		int format=R.string.unknownType;
+		int format=R.string.unknown;
 		switch(fmt.internalValue()){
 			case 0://JPEG
 				format=R.string.jpeg;
@@ -61,7 +62,7 @@ public class Default extends SmartFindViewActivity
 		input.setTextColor(fmt==null?defTextColor:(fmt.isDeprecated()?Color.RED:defTextColor));
 	}
 	public void setOutputExtension(Formats fmt){
-		int format=R.string.unknownType;
+		int format=R.string.unknown;
 		switch(fmt.internalValue()){
 			case 0://JPEG
 				format=R.string.jpeg;
